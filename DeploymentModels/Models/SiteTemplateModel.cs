@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DeploymentModels.Models.Contract;
 
-namespace DeploymentModels.ModelsContract
+namespace DeploymentModels.Models
 {
     public class SiteTemplateModel
     {
@@ -12,13 +13,13 @@ namespace DeploymentModels.ModelsContract
             protected set;
         }
 
-        protected IList<IModel> Models
+        internal IList<IModel> Models
         {
             get;
             set;
         }
 
-        protected IList<IProvisionCodeModel> ProvisionCodeModels
+        internal IList<IProvisionCodeModel> ProvisionCodeModels
         {
             get;
             set;
@@ -29,6 +30,14 @@ namespace DeploymentModels.ModelsContract
             Title = siteTemplateTitle;
             Models = new List<IModel>();
             ProvisionCodeModels = new List<IProvisionCodeModel>();
+        }
+
+
+        public SiteTemplateModel(String siteTemplateTitle, SiteTemplateModel parentModel)
+        {
+            Title = siteTemplateTitle;
+            Models = new List<IModel>(parentModel.Models);
+            ProvisionCodeModels = new List<IProvisionCodeModel>(parentModel.ProvisionCodeModels);
         }
 
         public SiteTemplateModel AddModel(IModel model)

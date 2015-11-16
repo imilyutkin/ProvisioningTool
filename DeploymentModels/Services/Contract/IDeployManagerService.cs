@@ -1,4 +1,4 @@
-﻿using DeploymentModels.ModelsContract;
+﻿using DeploymentModels.Models.Contract;
 
 namespace DeploymentModels.Services.Contract
 {

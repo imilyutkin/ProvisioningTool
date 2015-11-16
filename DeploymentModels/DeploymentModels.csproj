@@ -40,15 +40,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeploymentModel.cs" />
+    <Compile Include="MetadataModels\Base\AheadCustomActionDeploymentModel.cs" />
+    <Compile Include="MetadataModels\Base\AheadDeploymentModel.cs" />
+    <Compile Include="MetadataModels\Base\BaseContentTypesModel.cs" />
+    <Compile Include="MetadataModels\Base\BaseTemplateListsModel.cs" />
+    <Compile Include="MetadataModels\Base\MetadataPartDeploymentModel.cs" />
+    <Compile Include="MetadataModels\Dossier\DossierContentTypesModel.cs" />
+    <Compile Include="MetadataModels\Dossier\DossierTemplateListsModel.cs" />
     <Compile Include="ModelNode.cs" />
-    <Compile Include="ModelsContract\IDeployableModel.cs" />
-    <Compile Include="ModelsContract\IModel.cs" />
-    <Compile Include="ModelsContract\IProvisionCodeModel.cs" />
-    <Compile Include="ModelsContract\Model.cs" />
-    <Compile Include="ModelsContract\SiteTemplateModel.cs" />
-    <Compile Include="Models\AheadDeploymentModel.cs" />
-    <Compile Include="Models\BaseContentTypesModel.cs" />
-    <Compile Include="Models\MetadataPartDeploymentModel.cs" />
+    <Compile Include="Models\Contract\IDeployableModel.cs" />
+    <Compile Include="Models\Contract\IModel.cs" />
+    <Compile Include="Models\Contract\IProvisionCodeModel.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\SiteTemplateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Contract\IDeployManagerService.cs" />
     <Compile Include="Services\Impl\DeployManagerService.cs" />

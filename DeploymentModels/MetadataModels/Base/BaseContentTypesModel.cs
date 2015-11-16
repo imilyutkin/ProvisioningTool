@@ -1,6 +1,6 @@
-﻿using DeploymentModels.ModelsContract;
+﻿using DeploymentModels.Models.Contract;
 
-namespace DeploymentModels.Models
+namespace DeploymentModels.MetadataModels.Base
 {
     public class BaseContentTypesModel : IModel
     {

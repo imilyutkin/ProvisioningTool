@@ -1,5 +1,5 @@
 ﻿using System;
-using DeploymentModels.ModelsContract;
+using DeploymentModels.Models.Contract;
 using DeploymentModels.Services.Contract;
 
 namespace DeploymentModels.Services.Impl

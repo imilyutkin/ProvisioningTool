@@ -1,4 +1,4 @@
-﻿namespace DeploymentModels.ModelsContract
+﻿namespace DeploymentModels.Models.Contract
 {
     public interface IModel
     {

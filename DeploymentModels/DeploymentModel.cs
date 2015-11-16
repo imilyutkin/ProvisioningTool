@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using DeploymentModels.ModelsContract;
+using DeploymentModels.Models.Contract;
 
 namespace DeploymentModels
 {

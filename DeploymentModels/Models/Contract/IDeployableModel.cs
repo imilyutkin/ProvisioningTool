@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DeploymentModels.ModelsContract
+namespace DeploymentModels.Models.Contract
 {
     public interface IDeployableModel
     {

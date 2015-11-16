@@ -1,6 +1,8 @@
 ﻿using System;
+using DeploymentModels.MetadataModels;
+using DeploymentModels.MetadataModels.Base;
+using DeploymentModels.MetadataModels.Dossier;
 using DeploymentModels.Models;
-using DeploymentModels.ModelsContract;
 using DeploymentModels.Services.Contract;
 using DeploymentModels.Services.Impl;
 
@@ -12,12 +14,21 @@ namespace ProvisionTool
         {
             IDeployManagerService deployService = new DeployManagerService();
 
-            var dossierModel = Model.Create("DossierTemplate")
+            var baseModel = Model.Create("BaseTemplate")
                 .AddModel(new BaseContentTypesModel())
-                .AddProvisionCode(new AheadDeploymentModel("http://dossier.com", "ivan"))
-                .AddProvisionCode(new MetadataPartDeploymentModel("http://dossier.com"))
+                .AddModel(new BaseTemplateListsModel())
+                .AddProvisionCode(new MetadataPartDeploymentModel());
+
+            var dossierModel = Model.Create("DossierTemplate", baseModel)
+                .AddModel(new DossierContentTypesModel())
+                .AddModel(new DossierTemplateListsModel())
+                .AddModel(new AheadCustomActionDeploymentModel("http://divlets.com", "package_ahead.json"))
                 .BuildModel();
 
+            Console.WriteLine("Deploy Base template");
+            deployService.Deploy(baseModel.BuildModel());
+            Console.WriteLine();
+            Console.WriteLine("Deploy Dossier tempalte");
             deployService.Deploy(dossierModel);
 
             Console.Read();
