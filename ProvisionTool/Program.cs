@@ -1,5 +1,4 @@
 ﻿using System;
-using DeploymentModels.MetadataModels;
 using DeploymentModels.MetadataModels.Base;
 using DeploymentModels.MetadataModels.Dossier;
 using DeploymentModels.Models;

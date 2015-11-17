@@ -5,12 +5,12 @@ using DeploymentModels.Models.Contract;
 
 namespace DeploymentModels.Models
 {
-    public class SiteTemplateModel
+    public class SiteTemplateModel : ITemplateModel
     {
         public String Title
         {
             get;
-            protected set;
+            set;
         }
 
         internal IList<IModel> Models
