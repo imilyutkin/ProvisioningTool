@@ -13,13 +13,13 @@ namespace DeploymentModels.Models
             set;
         }
 
-        internal IList<IModel> Models
+        public IList<IModel> Models
         {
             get;
             set;
         }
 
-        internal IList<IProvisionCodeModel> ProvisionCodeModels
+        public IList<IProvisionCodeModel> ProvisionCodeModels
         {
             get;
             set;
@@ -33,7 +33,7 @@ namespace DeploymentModels.Models
         }
 
 
-        public SiteTemplateModel(String siteTemplateTitle, SiteTemplateModel parentModel)
+        public SiteTemplateModel(String siteTemplateTitle, ITemplateModel parentModel)
         {
             Title = siteTemplateTitle;
             Models = new List<IModel>(parentModel.Models);

@@ -1,9 +1,9 @@
 ﻿using System;
-using DeploymentModels.MetadataModels.Base;
-using DeploymentModels.MetadataModels.Dossier;
-using DeploymentModels.Models;
+using CommonSItes;
+using DeploymentModels.Container.Impl;
 using DeploymentModels.Services.Contract;
 using DeploymentModels.Services.Impl;
+using TemplateSites;
 
 namespace ProvisionTool
 {
@@ -11,25 +11,16 @@ namespace ProvisionTool
     {
         static void Main(string[] args)
         {
+            var commonPackage = new CommonSitesPackage(new CommonSitesSettings());
+            var dossierPackage = new DossierSitesPackage(new DossierSiteSettings { AheadPackageFile = "package_ahead.json", DivletSiteUrl = "http://divlets.com/"});
+            dossierPackage.SetDepencies(commonPackage);
+            var container = new TemplateContainer(commonPackage, dossierPackage);
+            var dossierTemplate = container.Resolve("DossierTemplate");
+
             IDeployManagerService deployService = new DeployManagerService();
-
-            var baseModel = Model.Create("BaseTemplate")
-                .AddModel(new BaseContentTypesModel())
-                .AddModel(new BaseTemplateListsModel())
-                .AddProvisionCode(new MetadataPartDeploymentModel());
-
-            var dossierModel = Model.Create("DossierTemplate", baseModel)
-                .AddModel(new DossierContentTypesModel())
-                .AddModel(new DossierTemplateListsModel())
-                .AddModel(new AheadCustomActionDeploymentModel("http://divlets.com", "package_ahead.json"))
-                .BuildModel();
-
-            Console.WriteLine("Deploy Base template");
-            deployService.Deploy(baseModel.BuildModel());
-            Console.WriteLine();
+            
             Console.WriteLine("Deploy Dossier tempalte");
-            deployService.Deploy(dossierModel);
-
+            deployService.Deploy(dossierTemplate.BuildModel());
             Console.Read();
         }
     }

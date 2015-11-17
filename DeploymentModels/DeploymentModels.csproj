@@ -39,6 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Container\Contract\ITemplateContainer.cs" />
+    <Compile Include="Container\Contract\ITemplatesPackage.cs" />
+    <Compile Include="Container\Impl\BaseTemplatePackage.cs" />
+    <Compile Include="Container\Impl\TemplateContainer.cs" />
     <Compile Include="DeploymentModel.cs" />
     <Compile Include="MetadataModels\Base\AheadCustomActionDeploymentModel.cs" />
     <Compile Include="MetadataModels\Base\AheadDeploymentModel.cs" />

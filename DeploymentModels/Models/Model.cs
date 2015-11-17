@@ -1,4 +1,5 @@
 ﻿using System;
+using DeploymentModels.Models.Contract;
 
 namespace DeploymentModels.Models
 {
@@ -9,7 +10,7 @@ namespace DeploymentModels.Models
             return new SiteTemplateModel(siteTemplateTitle);
         }
 
-        public static SiteTemplateModel Create(String siteTemplateTitle, SiteTemplateModel parentSiteModel)
+        public static SiteTemplateModel Create(String siteTemplateTitle, ITemplateModel parentSiteModel)
         {
             return new SiteTemplateModel(siteTemplateTitle, parentSiteModel);
         }
